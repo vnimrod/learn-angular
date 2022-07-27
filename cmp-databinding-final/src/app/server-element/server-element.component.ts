@@ -20,6 +20,10 @@ import {
   selector: "app-server-element",
   templateUrl: "./server-element.component.html",
   styleUrls: ["./server-element.component.css"],
+  /* encapsulation, for scoped styles to the current component:
+      1. Emulated: ads ngcontent-ejo-{index} to each element
+      2. None: remove extra style text for a specific component. but, if we add any style to that specific component, it will be global styles
+      3. ShadowDom: uses the shadow dom technology only in browsers that support it */
   encapsulation: ViewEncapsulation.Emulated, // None, Native
 })
 export class ServerElementComponent
