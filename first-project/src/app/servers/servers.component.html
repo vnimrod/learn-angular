@@ -1,0 +1,57 @@
+<!-- (input) event fires when a user types. -->
+<label>One-way-binding</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)" />
+<label>{{ serverName }}</label>
+<hr />
+<!-- Two way binding - the input will be pre populated with the initial string serverName that we define in server.component.ts -->
+<label>Two-way-binding</label>
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+<label>{{ serverName }}</label>
+<hr />
+
+<!-- [disabled] indicate to angular that we using property binding. dynamically bind some property -->
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Add server
+</button>
+
+<!-- String interpolation -->
+<p [innerText]="allowNewServer"></p>
+<p [innerText]="allowNewServer">{{ allowNewServer }}</p>
+
+<!-- <p>{{ serverCreationStatus }}</p> -->
+
+<!-- with if else statement -->
+<p *ngIf="serverCreated; else noServer">
+  Server was created, server name is: {{ serverCreationStatus }}
+</p>
+<ng-template #noServer><p>No server was created!</p></ng-template>
+
+<input class="form-control" [(ngModel)]="username" />
+<p>{{ username }}</p>
+
+<button
+  class="btn btn-primary"
+  [disabled]="!username"
+  (click)="deleteUserName()"
+>
+  can be clicked if username
+</button>
+
+<button (click)="togglePassword()" class="btn btn-primary">
+  Display Details
+</button>
+<p [ngClass]="togglePasswordDisplay ? 'show' : 'hide'">{{ password }}</p>
+
+<!-- FOR LOOP -->
+<div
+  *ngFor="let logItem of logs; let i = index"
+  [ngStyle]="{ backgroundColor: i >= 5 ? 'blue' : 'transparent' }"
+>
+  {{ logItem }}
+</div>
+
+<app-server *ngFor="let server of servers"></app-server>
