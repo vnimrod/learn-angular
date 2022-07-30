@@ -9,8 +9,9 @@ export class AppComponent {
   serverElements = [
     { type: "server", name: "Testserver", content: "Just a test!" },
   ];
-
-  gameSeconds = 0;
+  gameSeconds: number = 0;
+  evenNumbers: number[] = [];
+  oddNumbers: number[] = [];
 
   onServerAdded(serverData: { serverName: string; serverContent: string }) {
     this.serverElements.push({
@@ -41,5 +42,10 @@ export class AppComponent {
 
   onIntervalFired(incrementNumber: number) {
     this.gameSeconds = incrementNumber;
+    if (incrementNumber % 2 === 0) {
+      this.evenNumbers.push(incrementNumber);
+    } else {
+      this.oddNumbers.push(incrementNumber);
+    }
   }
 }

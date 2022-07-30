@@ -20,4 +20,8 @@ export class GameControlComponent implements OnInit {
       this.seconds++;
     }, 1000);
   }
+
+  onGameStop() {
+    clearInterval(this.interval);
+  }
 }
