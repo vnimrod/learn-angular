@@ -2,6 +2,8 @@
   <!--<div class="panel-heading">{{ element.name }}</div>-->
   <div class="panel-heading" #heading>{{ name }}</div>
   <div class="panel-body">
+    <!-- ng-content is a hook, to mark angular that it should have add any content it finds between opening and closing tag of this component use of
+    in other words it the children of <app-server-element> ... </app-server-element> that we make use of in app.component-->
     <ng-content></ng-content>
   </div>
 </div>
