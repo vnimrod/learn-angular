@@ -24,6 +24,9 @@ export class CockpitComponent implements OnInit {
   }>();
   // newServerName = '';
   // newServerContent = '';
+
+  // ViewChild decorator gives us access to local reference 'serverContentInput'
+  // If we log it will see that its type is ElementRef, with the we can use the nativeElement property (below)
   @ViewChild("serverContentInput", { static: false })
   serverContentInput: ElementRef;
 
@@ -34,6 +37,7 @@ export class CockpitComponent implements OnInit {
   onAddServer(nameInput: HTMLInputElement) {
     this.serverCreated.emit({
       serverName: nameInput.value,
+      // nativeElement, from elementRef type, will gives us the element it self, in our case the input element itself
       serverContent: this.serverContentInput.nativeElement.value,
     });
   }
