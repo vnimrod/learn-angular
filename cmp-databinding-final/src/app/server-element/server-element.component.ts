@@ -44,6 +44,9 @@ export class ServerElementComponent
   @Input("srvElement") element: { type: string; name: string; content: string };
   @Input() name: string;
   @ViewChild("heading", { static: true }) header: ElementRef;
+
+  /* @ContentChild, allows us to reach out a local reference that we define on the parent component #contentParagraph (app.component.html) 
+    lets not forget that we cant access it until ngAfterContentInit is called */
   @ContentChild("contentParagraph", { static: true }) paragraph: ElementRef;
 
   constructor() {
@@ -61,6 +64,7 @@ export class ServerElementComponent
 
   // called once the component is initialized and runs after the constructor
   ngOnInit() {
+    // we will not get access to the properties here because they belong to content decorator and only on content lifecycle they will be available.
     console.log("ngOnInit called!");
     console.log("Text Content: " + this.header.nativeElement.textContent);
     console.log(
