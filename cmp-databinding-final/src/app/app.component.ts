@@ -10,6 +10,8 @@ export class AppComponent {
     { type: "server", name: "Testserver", content: "Just a test!" },
   ];
 
+  gameSeconds = 0;
+
   onServerAdded(serverData: { serverName: string; serverContent: string }) {
     this.serverElements.push({
       type: "server",
@@ -35,5 +37,9 @@ export class AppComponent {
 
   onDestroyFirst() {
     this.serverElements.splice(0, 1);
+  }
+
+  onIntervalFired(incrementNumber: number) {
+    this.gameSeconds = incrementNumber;
   }
 }

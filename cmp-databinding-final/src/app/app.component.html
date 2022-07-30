@@ -28,5 +28,14 @@
         </p>
       </app-server-element>
     </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <app-game-control
+          (intervalFired)="onIntervalFired($event)"
+        ></app-game-control>
+        <p>{{ gameSeconds }}</p>
+      </div>
+    </div>
   </div>
 </div>
