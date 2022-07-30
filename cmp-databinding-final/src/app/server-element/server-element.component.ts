@@ -26,6 +26,7 @@ import {
       3. ShadowDom: uses the shadow dom technology only in browsers that support it */
   encapsulation: ViewEncapsulation.Emulated, // None, Native
 })
+// implements is a good practice to be very explicit about which interfaces or methods our component will have.
 export class ServerElementComponent
   implements
     OnInit,
@@ -52,6 +53,7 @@ export class ServerElementComponent
   // LIFECYCLE HOOKS:
 
   // called after a bound input property changes. (after decorators like @Input receives new value)
+  // receives a changes property with currentValue and previousValue
   ngOnChanges(changes: SimpleChanges) {
     console.log("ngOnChanges called!");
     console.log(changes);
