@@ -90,6 +90,7 @@ export class ServerElementComponent
   }
 
   // called after the components view (and child views) has been initialized. after the view has been rendered.
+  // ***only when this hook has been reached, we can access elements on this template,
   ngAfterViewInit() {
     console.log("ngAfterViewInit called!");
     console.log("Text Content: " + this.header.nativeElement.textContent);
