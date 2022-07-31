@@ -53,7 +53,11 @@
       </ul>
       <p appBasicHighlight>Style me with basic directive!</p>
       <p [appBetterHighlight]="'red'" defaultColor="yellow">
-        Style me with a better directive!
+        Style me with a better directive! WITH property binding by @Input
+      </p>
+
+      <p appBetterHighlight defaultColor="yellow">
+        Style me with a better directive! WITHOUT property binding @Input
       </p>
       <div [ngSwitch]="value">
         <p *ngSwitchCase="5">Value is 5</p>
