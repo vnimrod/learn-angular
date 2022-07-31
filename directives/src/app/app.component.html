@@ -18,6 +18,10 @@
             {{ odd }}
           </li>
         </div>
+
+        <!-- BEHIND THE SCENES, *ngIf will be wrapped by ng-template -->
+
+        <!-- ***** THIS ***** -->
         <!--<div *ngIf="!onlyOdd">-->
         <!--<li-->
         <!--class="list-group-item"-->
@@ -27,6 +31,9 @@
         <!--{{ even }}-->
         <!--</li>-->
         <!--</div>-->
+
+        <!-- BEHIND THE SCENES IS EQUAL TO BELOW: -->
+
         <!--<ng-template [ngIf]="!onlyOdd">-->
         <!--<div>-->
         <!--<li-->
