@@ -11,6 +11,7 @@ import { LoggingService } from './logging.service';
 @NgModule({
   declarations: [AppComponent, AccountComponent, NewAccountComponent],
   imports: [BrowserModule, FormsModule],
+  // By adding the services to app module, we can inject them to other services
   // By adding providers to AppModule and add our services to it, we making sure that all of our app anywhere, receives that same instance of those services.
   // If we want to override it, we must add to the components that overrides, a providers and add the service again.
   // for using the same instance we need to import it and add it to a constructor.
