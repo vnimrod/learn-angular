@@ -22,6 +22,18 @@ export class AccountsService {
       status: 'unknown',
     },
   ];
+
+  // By adding a new EventEmitter here, we can use it on the component that consume the service.
+  /* For example we consume this service on account.component, there we emit it with our status,
+     then we subscribe to it on new-account.component.
+     In this way we can pass properties to siblings component easily.
+
+     Before services we needed to:
+     1. Create new emitter on account.component
+     2. Emit the status from account.component
+     3. Get it on app component
+     4. pass down to new-account.component
+  */
   statusUpdated = new EventEmitter<string>();
 
   // inject LoggingService to AccountsService
