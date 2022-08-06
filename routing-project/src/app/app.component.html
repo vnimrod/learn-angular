@@ -7,12 +7,14 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
+          <!-- routerLink catches the link of the element and prevents the default behavior. -->
           <a routerLink="/">Home</a>
         </li>
         <li role="presentation" routerLinkActive="active">
           <a routerLink="servers">Servers</a>
         </li>
         <li role="presentation" routerLinkActive="active">
+          <!-- With property binding, we can add more to the path like, /user/something will be [routerLink]="['users', 'something']"->  -->
           <a [routerLink]="['users']">Users</a>
         </li>
       </ul>
