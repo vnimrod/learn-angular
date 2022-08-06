@@ -13,6 +13,7 @@ export class ServersComponent implements OnInit {
   constructor(
     private serversService: ServersService,
     private router: Router,
+    // ActivatedRoute, inject the current route.
     private route: ActivatedRoute
   ) {}
 
@@ -21,6 +22,9 @@ export class ServersComponent implements OnInit {
   }
 
   onReload() {
+    /* with relative path, the navigate method doesn't know on which route we currently on.
+       so we pass second argument, with relativeTo.
+    */
     // this.router.navigate(['servers'], {relativeTo: this.route});
   }
 }
