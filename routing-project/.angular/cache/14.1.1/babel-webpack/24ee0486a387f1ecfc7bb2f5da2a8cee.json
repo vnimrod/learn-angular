@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class CanDeactivateGuard {\n  canDeactivate(component, currentRoute, currentState, nextState) {\n    return component.canDeactivate();\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
