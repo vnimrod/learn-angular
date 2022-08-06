@@ -19,6 +19,10 @@ export class UserComponent implements OnInit, OnDestroy {
       id: this.route.snapshot.params["id"],
       name: this.route.snapshot.params["name"],
     };
+    // Angular not re create a component we already in, even if the data inside changes because we load new data (on user.html, load anna (10)).
+    // We need to tell angular that we change something in that component.
+    // solution: *this.route.params.subscribe* (differently from route.snapshot.params) is an observable.
+    // It will know about change, when a new data will be sent through this observable (when event a parameter changes)
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
       this.user.id = params["id"];
       this.user.name = params["name"];
