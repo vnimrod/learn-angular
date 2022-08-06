@@ -2,6 +2,13 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
+        <!-- routerLinkActive - directive,
+           analyses our current loaded path, and check which link leads to a route which using this path.
+           by default it marks an element as active, if it contains or part of the path we are on
+           so / and /servers, will keep both tabs active.
+           The solution is to use: [routerLinkActiveOptions]="{ exact: true }", to be specific with only / . 
+           *we use active string that is a bootstrap class, we can use routerLinkActive="myClass".
+        -->
         <li
           role="presentation"
           routerLinkActive="active"
