@@ -2,17 +2,17 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
-        <li role="presentation"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">
+        <li
+          role="presentation"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <a routerLink="/">Home</a>
         </li>
-        <li role="presentation"
-            routerLinkActive="active">
+        <li role="presentation" routerLinkActive="active">
           <a routerLink="servers">Servers</a>
         </li>
-        <li role="presentation"
-            routerLinkActive="active">
+        <li role="presentation" routerLinkActive="active">
           <a [routerLink]="['users']">Users</a>
         </li>
       </ul>
@@ -20,6 +20,8 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- router-outlet - directive that marks the place in our document, where
+         we want that angular router load the component of our currently selected routs.  -->
       <router-outlet></router-outlet>
     </div>
   </div>
