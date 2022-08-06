@@ -3,6 +3,11 @@
     <div class="list-group">
       <!-- Here on routerLink we using /, because we using an absolute path to go back 
         directly to localhost:4200/servers page and not to localhost:4200/servers/servers for example by using servers without the / -->
+
+      <!-- queryParams - bindable property of the routeLink directive. 
+            key: value pair for the query  -->
+
+      <!-- fragment - add #X  -->
       <a
         [routerLink]="['/servers', server.id]"
         [queryParams]="{ allowEdit: server.id === 3 ? '1' : '0' }"

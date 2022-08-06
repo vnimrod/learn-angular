@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     /* 
       ...complex calculation 
     */
+    //  queryParams and fragment is the same as we using in servers.component
     this.router.navigate(["/servers", id, "edit"], {
       queryParams: { allowEdit: "1" },
       fragment: "loading",
