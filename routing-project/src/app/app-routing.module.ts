@@ -28,6 +28,7 @@ const appRoutes: Routes = [
     component: ServersComponent,
     children: [
       {
+        // Dynamic id route
         path: ":id",
         component: ServerComponent,
         resolve: { server: ServerResolver },
