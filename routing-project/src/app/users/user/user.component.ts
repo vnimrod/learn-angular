@@ -30,6 +30,8 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    // This unsubscribe on destroy, happens beyond the scenes by angular. (we don't have to do this).
+    // But, if we add our own observables, we need to manually unsubscri
     this.paramsSubscription.unsubscribe();
   }
 }
