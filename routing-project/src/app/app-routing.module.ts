@@ -46,6 +46,8 @@ const appRoutes: Routes = [
     component: ErrorPageComponent,
     data: { message: "Page not found!" },
   },
+  // ** means catch all path you don't know.
+  // THE ORDER MATTERS, we need to make sure that this route is the last one on our routs.
   { path: "**", redirectTo: "/not-found" },
 ];
 
