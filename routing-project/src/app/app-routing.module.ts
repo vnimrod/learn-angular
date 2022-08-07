@@ -23,7 +23,12 @@ const appRoutes: Routes = [
   },
   {
     path: "servers",
+
+    /* canActivate - Interface that a class can implement to be a guard
+     deciding if a route can be activated. If all guards return true, 
+     navigation continues. If any guard returns false, navigation is cancelled. */
     // canActivate: [AuthGuard],
+
     canActivateChild: [AuthGuard],
     component: ServersComponent,
     children: [
