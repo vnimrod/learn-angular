@@ -29,6 +29,7 @@ const appRoutes: Routes = [
      navigation continues. If any guard returns false, navigation is cancelled. */
     // canActivate: [AuthGuard],
 
+    // canActivateChild - Interface that guard only our child routes,
     canActivateChild: [AuthGuard],
     component: ServersComponent,
     children: [
