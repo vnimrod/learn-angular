@@ -34,6 +34,8 @@ export class ServerComponent implements OnInit {
   onEdit() {
     this.router.navigate(["edit"], {
       relativeTo: this.route,
+      /* When we click edit, we want to preserve the query params from the previous route /[server]?allowEdit=[x] to the new route /edit?allowEdit=[x], so we use queryParamsHandling: "preserve"
+         Without the use of queryParamsHandling, the new route (when we click edit), will be just /edit and we lose our access to allowEdit=x=[x]*/
       queryParamsHandling: "preserve",
     });
   }
