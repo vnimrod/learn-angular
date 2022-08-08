@@ -42,6 +42,7 @@ const appRoutes: Routes = [
       {
         path: ":id/edit",
         component: EditServerComponent,
+        // Here we add canDeactivate, and the component will load it when we try to leave this path.
         canDeactivate: [CanDeactivateGuard],
       },
     ],

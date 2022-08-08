@@ -10,6 +10,7 @@ import { CanComponentDeactivate } from "./can-deactivate-guard.service";
   templateUrl: "./edit-server.component.html",
   styleUrls: ["./edit-server.component.css"],
 })
+// Here we add CanComponentDeactivate, our own interface, thats force us to implements the canDeactivate method from the service can-deactivate-guard.
 export class EditServerComponent implements OnInit, CanComponentDeactivate {
   server: { id: number; name: string; status: string };
   serverName = "";
