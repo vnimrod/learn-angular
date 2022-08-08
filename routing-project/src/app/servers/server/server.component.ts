@@ -18,9 +18,13 @@ export class ServerComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    /* by binding the route data observable returning by the resolver(server-resolver service), we add to this.server, the data stored on our server property from 
+      app-routing module servers/:id (resolve) that was resolved on server-resolver.
+    */
     this.route.data.subscribe((data: Data) => {
       this.server = data["server"];
     });
+    // ABOVE IS EQUAL TO BELOW BEHAVIOR.
     // const id = +this.route.snapshot.params['id'];
     // this.server = this.serversService.getServer(id);
     // this.route.params
