@@ -14,21 +14,26 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
-    // this.firstObsSubscription = interval(1000).subscribe(count => {
-    //   console.log(count);
-    // });
-
     // Creating custom observable.
-    // Observer- listener, will inform about new data, errors or about the observable being completed
+    // Observer- listener, will be informed about new data, errors or about the observable being completed
+
+    /* The FLOW here - whenever we subscribe to observable and create our handlers function (on customIntervalObservable for example), 
+       RxJS merge them all into one object, and passes the object (the observer) to the observable.
+       Then inside the observable it will interact with the observer and let the observer know about new data errors and so on.
+    */
     const customIntervalObservable = new Observable((observer) => {
       let count = 0;
       setInterval(() => {
+        // Here we create our custom observable and add the logic then when we subscribe(below) to it we react to changes that happens here.
+        // Example - here we use observer.complete, then we react to the completion on subscribe below
+
         // next(), emit a new value, and let our observer to know about the new data we entering to count.
         observer.next(count);
         if (count === 5) {
           observer.complete();
         }
         if (count > 3) {
+          // When we use observer.error, it cancels the observable and will not reach completed
           observer.error(new Error("Count is greater 3!"));
         }
         count++;
