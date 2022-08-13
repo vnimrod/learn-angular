@@ -1,27 +1,27 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ViewChild } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  @ViewChild('f', { static: false }) signupForm: NgForm;
-  defaultQuestion = 'teacher';
-  answer = '';
-  genders = ['male', 'female'];
+  @ViewChild("f", { static: false }) signupForm: NgForm;
+  defaultQuestion = "teacher";
+  answer = "";
+  genders = ["male", "female"];
   user = {
-    username: '',
-    email: '',
-    secretQuestion: '',
-    answer: '',
-    gender: ''
+    username: "",
+    email: "",
+    secretQuestion: "",
+    answer: "",
+    gender: "",
   };
   submitted = false;
 
   suggestUserName() {
-    const suggestedName = 'Superuser';
+    const suggestedName = "Superuser";
     // this.signupForm.setValue({
     //   userData: {
     //     username: suggestedName,
@@ -33,11 +33,12 @@ export class AppComponent {
     // });
     this.signupForm.form.patchValue({
       userData: {
-        username: suggestedName
-      }
+        username: suggestedName,
+      },
     });
   }
 
+  // By adding #f on our form, we have access through NgForm, to the NgForm object created by angular of our added form (on app.component.html)
   // onSubmit(form: NgForm) {
   //   console.log(form);
   // }
