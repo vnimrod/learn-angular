@@ -41,6 +41,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
 
     this.firstObsSubscription = customIntervalObservable
+      /* pipe() - every observable has pipe method,
+       * We can change data before the subscribe.
+       * We can use for example, when we fetching data from a server and we want to transform that data before we use it on a component.
+       * map and filter here, are used as OPERATORS that needs to be imported from rxjs/operators
+       * The data that we first gets on filter, is count
+       */
       .pipe(
         filter((data) => {
           return data > 0;
