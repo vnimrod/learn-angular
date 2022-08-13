@@ -7,6 +7,8 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
+  // Getting access to the local elements that has the f attribute on them. (our form)
+  // With this we don't need to pass f as an argument to onSubmit below
   @ViewChild("f", { static: false }) signupForm: NgForm;
   defaultQuestion = "teacher";
   answer = "";

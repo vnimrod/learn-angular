@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <!-- To access the data of the form created by angular, we must add #f="ngForm", we can pass it (or not) later to onSubmit(f) -->
+      <!-- To access the data of the form created by angular, we must add #f="ngForm", we can pass it (or not) later to onSubmit(f)
+          with viewChild we don't need to pass f to onSubmit(f)
+      -->
       <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
