@@ -13,6 +13,10 @@
                  adding name attribute will gives this control a name.
                  by adding all above, below input will be register in this js representation of this form
             -->
+
+            <!-- required here act as a selector for a build in directive shipping with angular, and it will be recognize by angular,
+                 and it wil automatically configure our form data provided by angular, and will change valid on that object to false
+            -->
             <input
               type="text"
               id="username"
@@ -31,6 +35,11 @@
           </button>
           <div class="form-group">
             <label for="email">Mail</label>
+            <!-- Below we add email (only) attribute.
+                 Its a directive made available by angular to mark if this email is valid.
+                 Also, angular add dynamic classes to this input, giving us information about the state of this control (input)
+                 classes: dirty, touched, valid and with this we can style by validity.
+            -->
             <input
               type="email"
               id="email"
