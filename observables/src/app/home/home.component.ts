@@ -17,9 +17,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     // this.firstObsSubscription = interval(1000).subscribe(count => {
     //   console.log(count);
     // });
+
+    // Creating custom observable.
+    // Observer- listener, will inform about new data, errors or about the observable being completed
     const customIntervalObservable = new Observable((observer) => {
       let count = 0;
       setInterval(() => {
+        // next(), emit a new value, and let our observer to know about the new data we entering to count.
         observer.next(count);
         if (count === 5) {
           observer.complete();
