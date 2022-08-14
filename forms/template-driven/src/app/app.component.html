@@ -5,6 +5,11 @@
           with viewChild we don't need to pass f to onSubmit(f)
       -->
       <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <!-- ngModelGroup directive groups our inputs data on the value property found on the angular form object.
+             It also creates, userData control on that object inside controls.
+             There, we will have value -> userData(object) with email and username
+             Also add #userData local reference to use below paragraph
+        -->
         <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
@@ -33,6 +38,7 @@
           >
             Suggest an Username
           </button>
+
           <div class="form-group">
             <label for="email">Mail</label>
             <!-- Below, we add email (only) attribute.
@@ -60,6 +66,7 @@
         <p *ngIf="!userData.valid && userData.touched">User Data is invalid!</p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
+
           <!-- Below, on select, we use [ngModel]="defaultQuestion".
                With that we can add a default question that will be selected by the value of the option attr(pet or teacher)
                with one way binding
@@ -74,6 +81,7 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
+
         <!-- Below we use two way binding with [(ngModel)]="answer",
              then we use on the paragraph below (after we define it on app.component.ts)
              We can see it by the name of the textarea - questionAnswer, on angular created form object.
@@ -87,6 +95,7 @@
           ></textarea>
         </div>
         <p>Your reply: {{ answer }}</p>
+
         <div class="radio" *ngFor="let gender of genders">
           <label>
             <input
