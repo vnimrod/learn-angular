@@ -24,6 +24,11 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = "Superuser";
+
+    /* setValue({}) - allows us to set the value of the whole form. 
+       we need to pass js object that exactly representing our form.
+       This is a bad approach, because it setting the values of all our form and overwrite other values we entered.
+    */
     // this.signupForm.setValue({
     //   userData: {
     //     username: suggestedName,
@@ -33,6 +38,11 @@ export class AppComponent {
     //   questionAnswer: '',
     //   gender: 'male'
     // });
+
+    /* 
+     form.patchValue({}) - better approach then setValue({}).
+      Here we pass only the properties we want to overwrite.
+    */
     this.signupForm.form.patchValue({
       userData: {
         username: suggestedName,
