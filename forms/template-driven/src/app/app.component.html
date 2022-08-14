@@ -35,11 +35,12 @@
           </button>
           <div class="form-group">
             <label for="email">Mail</label>
-            <!-- Below we add email (only) attribute.
+            <!-- Below, we add email (only) attribute.
                  Its a directive made available by angular to mark if this email is valid.
                  Also, angular add dynamic classes to this input, giving us information about the state of this control (input)
                  classes: dirty, touched, valid and with this we can style by validity.
             -->
+            <!-- Below, we using #email="ngModel", ngModel here expose us additional info and we can use valid on email on the span below -->
             <input
               type="email"
               id="email"
@@ -50,6 +51,7 @@
               email
               #email="ngModel"
             />
+            <!-- We have access to email below because we use #email local reference on the input above.-->
             <span class="help-block" *ngIf="!email.valid && email.touched"
               >Please enter a valid email!</span
             >
