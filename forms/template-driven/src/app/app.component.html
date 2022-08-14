@@ -62,6 +62,7 @@
           <label for="secret">Secret Questions</label>
           <!-- Below, on select, we use [ngModel]="defaultQuestion".
                With that we can add a default question that will be selected by the value of the option attr(pet or teacher)
+               with one way binding
           -->
           <select
             id="secret"
@@ -73,6 +74,10 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
+        <!-- Below we use two way binding with [(ngModel)]="answer",
+             then we use on the paragraph below (after we define it on app.component.ts)
+             We can see it by the name of the textarea - questionAnswer, on angular created form object.
+        -->
         <div class="form-group">
           <textarea
             name="questionAnswer"
