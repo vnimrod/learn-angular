@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.signupForm = new FormGroup({
       // keys below are controls
+      // userData is a nested FormGroup inside FormGroup that contains controls
       userData: new FormGroup({
         /* FormControl arguments:
            1. First argument of FromControl (null) is the initial state, value of this control.

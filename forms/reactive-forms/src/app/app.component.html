@@ -8,6 +8,7 @@
            so we add formControlName = [our signupForm arguments]
       -->
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <!-- We need to tell angular about our new userData FormGroup -->
         <div formGroupName="userData">
           <div class="form-group">
             <label for="username">Username</label>
@@ -17,6 +18,11 @@
               formControlName="username"
               class="form-control"
             />
+            <!-- get method here gives us access to the form object.
+                 With that we can display messages to the user about invalid entered data.
+                 userData is a formGroup inside our signupForm that is also formGroup.
+                 So we get the data on our control by userData.[control].
+            -->
             <span
               *ngIf="
                 !signupForm.get('userData.username').valid &&
