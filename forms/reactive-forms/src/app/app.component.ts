@@ -26,6 +26,8 @@ export class AppComponent implements OnInit {
         */
         username: new FormControl(null, [
           Validators.required,
+          // this.forbiddenNames.bind(this) - We must bind our validator to this class, because angular will check the validator.
+          // If we only use this.forbiddenNames, the this will not refer to this class
           this.forbiddenNames.bind(this),
         ]),
         email: new FormControl(
@@ -69,10 +71,11 @@ export class AppComponent implements OnInit {
     (<FormArray>this.signupForm.get("hobbies")).push(control);
   }
 
-  getControls() {
-    return (<FormArray>this.signupForm.get("hobbies")).controls;
+  get controls() {
+    return (this.signupForm.get("hobbies") as FormArray).controls;
   }
 
+  // validator func
   forbiddenNames(control: FormControl): { [s: string]: boolean } {
     if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
       return { nameIsForbidden: true };
