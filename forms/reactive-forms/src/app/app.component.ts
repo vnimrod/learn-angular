@@ -51,6 +51,8 @@ export class AppComponent implements OnInit {
     /* statusChanges listen to the form status. for example, if one input is invalid
      for some reason, the whole form will be invalid, and that the status that we will get back. */
     this.signupForm.statusChanges.subscribe((status) => console.log(status));
+
+    // setValue - pre populated values to our form, initial data. we must enter data to all of our form arguments, to make setValue to work.
     this.signupForm.setValue({
       userData: {
         username: "Max",
@@ -59,6 +61,8 @@ export class AppComponent implements OnInit {
       gender: "male",
       hobbies: [],
     });
+
+    // patchValue, same as setValue but the difference is that here, we can assign data to specific arguments.
     this.signupForm.patchValue({
       userData: {
         username: "Anna",
