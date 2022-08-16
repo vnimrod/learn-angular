@@ -1,6 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- [formGroup] = signupForm, angular auto detect that we add a form here and it create a form for us.
+           we need to add directive to overwrite this behavior to tell angular deferent instructions. (we must add ReactiveFormsModule on app.module for this to work)
+           below we bind to our signupForm to this form.
+           we still need to tell angular which controls should be connected to each input:
+           so we add formControlName = [our signupForm arguments]
+      -->
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <div formGroupName="userData">
           <div class="form-group">
