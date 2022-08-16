@@ -67,6 +67,9 @@
             }}
           </label>
         </div>
+        <!-- Our dynamic hobbies controls 
+             with the use of formArrayName, this tell angular that somewhere in this div, the controls array will live.
+        -->
         <div formArrayName="hobbies">
           <h4>Your Hobbies</h4>
           <button class="btn btn-default" type="button" (click)="onAddHobby()">
@@ -74,10 +77,7 @@
           </button>
           <div
             class="form-group"
-            *ngFor="
-              let hobbyControl of signupForm.get('hobbies')?.controls;
-              let i = index
-            "
+            *ngFor="let hobbyControl of getControls(); let i = index"
           >
             <input type="text" class="form-control" [formControlName]="i" />
           </div>

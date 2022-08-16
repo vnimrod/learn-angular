@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
         ),
       }),
       gender: new FormControl("male"),
+      // hobbies array is and array of dynamic controls
+      // FormArray represent an array of controls
       hobbies: new FormArray([]),
     });
     // this.signupForm.valueChanges.subscribe(
@@ -62,8 +64,13 @@ export class AppComponent implements OnInit {
   }
 
   onAddHobby() {
+    // Dynamic creation of FormControl.
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.signupForm.get("hobbies")).push(control);
+  }
+
+  getControls() {
+    return (<FormArray>this.signupForm.get("hobbies")).controls;
   }
 
   forbiddenNames(control: FormControl): { [s: string]: boolean } {
