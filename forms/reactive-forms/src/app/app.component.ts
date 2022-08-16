@@ -42,9 +42,14 @@ export class AppComponent implements OnInit {
       // FormArray represent an array of controls
       hobbies: new FormArray([]),
     });
+
+    // valueChanges change fires every time we change something on our form.
     // this.signupForm.valueChanges.subscribe(
     //   (value) => console.log(value)
     // );
+
+    /* statusChanges listen to the form status. for example, if one input is invalid
+     for some reason, the whole form will be invalid, and that the status that we will get back. */
     this.signupForm.statusChanges.subscribe((status) => console.log(status));
     this.signupForm.setValue({
       userData: {
