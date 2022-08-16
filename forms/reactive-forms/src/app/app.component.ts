@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
         email: new FormControl(
           null,
           [Validators.required, Validators.email],
+          // Async validator
           this.forbiddenEmails
         ),
       }),
@@ -83,6 +84,7 @@ export class AppComponent implements OnInit {
     return null;
   }
 
+  // Async validator
   forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
     const promise = new Promise<any>((resolve, reject) => {
       setTimeout(() => {
