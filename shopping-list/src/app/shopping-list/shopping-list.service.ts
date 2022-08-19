@@ -5,13 +5,22 @@ import { Ingredient } from '../shared/ingredient-model';
 export class ShoppingListService {
   // ingredientsChanged = new EventEmitter<Ingredient[]>();
   ingredientsChanged = new Subject<Ingredient[]>();
+  startedEditing = new Subject<number>();
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
     new Ingredient('Tomatoes', 5),
   ];
 
+  getIngredient(index: number) {
+    return this.ingredients[index];
+  }
+
   getIngredients() {
     return this.ingredients.slice();
+  }
+
+  onIngredientChange() {
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   addNewIngredient(nameInput: string, amountInput: number) {
@@ -29,11 +38,21 @@ export class ShoppingListService {
        2. after adding a new ingredient, emit a new copy with the new ingredient, then subscribe to it.
 
     */
-    this.ingredientsChanged.next(this.ingredients.slice());
+    this.onIngredientChange();
   }
 
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.next(this.ingredients.slice());
+    this.onIngredientChange();
+  }
+
+  updateIngredient(index: number, nameInput: string, amountInput: number) {
+    this.ingredients[index] = new Ingredient(nameInput, amountInput);
+    this.onIngredientChange();
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    this.onIngredientChange();
   }
 }

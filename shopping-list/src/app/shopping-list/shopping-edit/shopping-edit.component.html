@@ -1,27 +1,60 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form [formGroup]="shoppingEditForm" (ngSubmit)="addNewIngredient()">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">name</label>
-          <input type="text" id="name" class="form-control" #nameInput />
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            formControlName="name"
+          />
+          <span
+            *ngIf="
+              !shoppingEditForm.get('name')?.valid &&
+              shoppingEditForm.get('name')?.touched
+            "
+            >Please add name!</span
+          >
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
-          <input type="number" id="amount" class="form-control" #amountInput />
+          <input
+            type="number"
+            id="amount"
+            class="form-control"
+            formControlName="amount"
+          />
+          <span
+            *ngIf="
+              !shoppingEditForm.get('amount')?.valid &&
+              shoppingEditForm.get('amount')?.touched
+            "
+            >Please add amount!</span
+          >
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <button
+            [disabled]="!shoppingEditForm.valid"
             class="btn btn-success"
             type="submit"
-            (click)="addNewIngredient(nameInput, amountInput, $event)"
           >
-            Add
+            {{ editMode ? "Update" : "Add" }}
           </button>
-          <button class="btn btn-danger" type="button">Delete</button>
-          <button class="btn btn-primary" type="button">Clear</button>
+          <button
+            *ngIf="editMode"
+            class="btn btn-danger"
+            type="button"
+            (click)="onDelete()"
+          >
+            Delete
+          </button>
+          <button class="btn btn-primary" type="button" (click)="onClear()">
+            Clear
+          </button>
         </div>
       </div>
     </form>
