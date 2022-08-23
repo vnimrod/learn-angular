@@ -32,17 +32,26 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  onRecipeChange() {
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   addNewIngredientToShoppingList(ingredients: Ingredient[]) {
     this.ShoppingListService.addIngredients(ingredients);
   }
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
-    this.recipesChanged.next(this.recipes.slice());
+    this.onRecipeChange();
   }
 
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
-    this.recipesChanged.next(this.recipes.slice());
+    this.onRecipeChange();
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.onRecipeChange();
   }
 }
