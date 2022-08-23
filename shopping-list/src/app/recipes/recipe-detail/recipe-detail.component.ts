@@ -9,7 +9,7 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-detail.component.css'],
 })
 export class RecipeDetailComponent implements OnInit {
-  recipe!: Recipe | undefined;
+  recipe!: Recipe;
   id!: number;
 
   constructor(
@@ -35,11 +35,10 @@ export class RecipeDetailComponent implements OnInit {
 
   onDeleteRecipe() {
     this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
   }
 
   addToShoppingList() {
-    // this.recipeService.addNewIngredientToShoppingList(
-    //   this.recipe.ingredients
-    // );
+    this.recipeService.addNewIngredientToShoppingList(this.recipe.ingredients);
   }
 }
