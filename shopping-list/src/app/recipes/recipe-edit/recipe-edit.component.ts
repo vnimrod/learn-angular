@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Form, FormArray, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 
@@ -26,13 +26,21 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
+  get controls() {
+    return (this.recipeEditForm.get('ingredients') as FormArray).controls;
+  }
+
   onSubmit() {
     console.log(this.recipeEditForm);
   }
 
-  get controls() {
-    console.log((this.recipeEditForm.get('ingredients') as FormArray).controls);
-    return (this.recipeEditForm.get('ingredients') as FormArray).controls;
+  onAddIngredient() {
+    (this.recipeEditForm.get('ingredients') as FormArray).push(
+      new FormGroup({
+        name: new FormControl(),
+        amount: new FormControl(),
+      })
+    );
   }
 
   private initForm() {
