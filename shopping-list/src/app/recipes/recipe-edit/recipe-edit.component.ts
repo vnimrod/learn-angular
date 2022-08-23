@@ -41,7 +41,7 @@ export class RecipeEditComponent implements OnInit {
     let recipeDescription = '';
     let recipeIngredients = new FormArray([] as FormGroup[]);
 
-    // we use edit mode here because we want to save the data of the recipe when we click on it and then edit
+    // we use edit mode here because we want to save the data of the recipe when we click on it(will be on inputs) and then edit
     if (this.editMode) {
       const recipe = this.recipeService.getRecipe(this.id);
       recipeName = recipe.name;

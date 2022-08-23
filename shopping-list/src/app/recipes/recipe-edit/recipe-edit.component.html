@@ -52,6 +52,9 @@
       </div>
       <div class="row">
         <div class="col-xs-12" formArrayName="ingredients">
+          <!-- [formGroupName]="i" - we need synchronized below raw with the dynamic created for group.
+               Because of that we bind each formGroup to the name created for us on each formGroup - the name is the index
+          -->
           <div
             class="row"
             *ngFor="let ingredient of controls; let i = index"
