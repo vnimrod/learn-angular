@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- Using two way data binding - [(ngModel)] to bind to filteredStatus value from app.component.ts -->
       <input type="text" [(ngModel)]="filteredStatus" />
       <br />
       <button class="btn btn-primary" (click)="onAddServer()">
@@ -10,6 +11,9 @@
       <h2>App Status: {{ appStatus | async }}</h2>
       <hr />
       <ul class="list-group">
+        <!-- filter: filteredStatus:'status'" - use our filter pipe passing all of the server array, with the filterStatus bind argument (above)
+             Then we filter our search result (on the filter pipe) by checking equality to the status key.
+        -->
         <li
           class="list-group-item"
           *ngFor="let server of servers | filter: filteredStatus:'status'"
